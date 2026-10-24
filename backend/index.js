@@ -3,14 +3,14 @@ const cors = require('cors')
 const app = express()
 
 app.use(cors({
-    origin:[
+    origin: [
         "http://localhost:5173",
-        "https://login-page-project-topaz.vercel.app/"
+        "https://login-page-project-topaz.vercel.app"
     ],
-    methods:["GET","POST","PUT","DELETE","OPTIONS"],
-    allowedHeaders:["Content-Type","Authorization"]
-
+    methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
+    allowedHeaders: ["Content-Type", "Authorization"]
 }))
+
 app.use(express.json())
 
 const users = []
@@ -88,7 +88,7 @@ app.post("/login", function (req, res) {
 
 if (require.main === module) {
     const PORT = process.env.PORT || 5000
-    app.listen(PORT,"0.0.0.0", ()=>{
+    app.listen(PORT, "0.0.0.0", () => {
         console.log(`Server is running on port ${PORT}`)
     })
 }

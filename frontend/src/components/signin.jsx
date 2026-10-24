@@ -28,11 +28,17 @@ function Signin() {
             const API_URL = import.meta.env.VITE_API_URL
             const response = await axios.post(`${API_URL}/signin`, { name: name.trim(), email: email.trim(), password })
             navigate("/login", { state: { message: response.data.message } })
-        } catch (error) {
+        }
+        catch (error) {
+            console.error("Signin error:", error)
+            console.error("API URL:", import.meta.env.VITE_API_URL)
+            console.error("Response:", error.response?.data)
+
             const message = error.response?.data?.message
                 || (error.response
-                    ? "Sign up failed. Please try again."
-                    : "Unable to connect to the server. Make sure the backend is running on port 5000.")
+                    ? "Signin failed. Please check your details."
+                    : "Network error. Check the API URL, CORS, and Render server.")
+
             setErrors({ form: message })
         }
     }
