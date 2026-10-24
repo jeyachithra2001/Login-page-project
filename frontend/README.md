@@ -4,6 +4,10 @@ Login and Sign Up Authentication
 
 This project is a simple and responsive Login and Sign Up application built using React.js and Express.js. It includes form validation to ensure users enter valid information before submitting the form.
 
+🔴 Vercel Live Link
+
+(https://login-page-project-topaz.vercel.app)
+
 🚀 Features
 
 - Sign Up Page: Allows users to register using their name, email, and password.
