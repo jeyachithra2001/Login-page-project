@@ -2,7 +2,12 @@ const express = require('express')
 const cors = require('cors')
 const app = express()
 
-app.use(cors())
+app.use(cors({
+    origin:[
+        "http://localhost:5173",
+        "https://login-page-project-topaz.vercel.app/"
+    ]
+}))
 app.use(express.json())
 
 const users = []
