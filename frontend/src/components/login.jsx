@@ -23,7 +23,8 @@ function Login() {
         if (Object.keys(validationErrors).length > 0) return
 
         try {
-            const response = await axios.post("http://127.0.0.1:5000/login", {email: email.trim(), password})
+             const API_URL = import.meta.env.VITE_API_URL
+            const response = await axios.post(`${API_URL}/login`, {email: email.trim(), password})
             navigate("/success", { state: { user: response.data.user, message: response.data.message } })
         } catch (error) {
             const message = error.response?.data?.message

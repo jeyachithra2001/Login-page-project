@@ -25,7 +25,8 @@ function Signin() {
         if (Object.keys(validationErrors).length > 0) return
 
         try {
-            const response = await axios.post("http://127.0.0.1:5000/signin", {name: name.trim(), email: email.trim(), password})
+            const API_URL = import.meta.env.VITE_API_URL
+            const response = await axios.post(`${API_URL}/signin`, { name: name.trim(), email: email.trim(), password })
             navigate("/login", { state: { message: response.data.message } })
         } catch (error) {
             const message = error.response?.data?.message
