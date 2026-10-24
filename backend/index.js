@@ -2,10 +2,10 @@ const express = require('express')
 const cors = require('cors')
 const app = express()
 
-const users = []
-
 app.use(cors())
 app.use(express.json())
+
+const users = []
 
 const validateEmail = (email) => {
     const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/
@@ -79,8 +79,9 @@ app.post("/login", function (req, res) {
 })
 
 if (require.main === module) {
-    app.listen(5000, function () {
-        console.log('Server is running on port 5000')
+    const PORT = process.env.PORT || 5000
+    app.listen(PORT,"0.0.0.0", ()=>{
+        console.log(`Server is running on port ${PORT}`)
     })
 }
 
