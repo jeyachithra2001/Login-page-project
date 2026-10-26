@@ -7,7 +7,7 @@ function Success() {
     if (!user) return <Navigate to="/login" replace />
 
     return (
-        <div className="card__container">
+        <div className="success__container">
             <div className="successPage__brand">
                 <span className="logo">ᨳଓ</span> <span className="brandName">Bloomy</span>
             </div>

@@ -123,6 +123,11 @@ button{
 }
 
 /* SUCCESS PAGE */
+.success__container{
+    background-image: url('./assets/img3.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+}
 .successPage__brand{
     color: white;
     margin: 20px;
@@ -155,7 +160,7 @@ button{
         font-size: 12px;
     }
     .card{
-        width: 80%;
+        width: 92%;
         padding: 26px;
     }
 }
