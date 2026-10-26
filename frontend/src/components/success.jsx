@@ -7,7 +7,7 @@ function Success() {
     if (!user) return <Navigate to="/login" replace />
 
     return (
-        <>
+        <div className="card__container">
             <div className="successPage__brand">
                 <span className="logo">ᨳଓ</span> <span className="brandName">Bloomy</span>
             </div>
@@ -16,7 +16,7 @@ function Success() {
                 <h1>Welcome, {user.name}.</h1>
                 <Link to="/login">Return to login</Link>
             </div>
-        </>
+        </div>
     )
 }
 export default Success
