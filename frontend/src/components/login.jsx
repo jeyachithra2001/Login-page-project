@@ -39,35 +39,37 @@ function Login() {
 
             setErrors({ form: message })
         }
-}
+    }
 
-return (
-    <div className="card">
-        <span className="logo">ᨳଓ</span> <span className="brandName">Bloomy</span>
-        <h2>Welcome Back</h2>
-        <p>Enter your details to access your account</p>
+    return (
+        <div className="card__container">
+        <div className="card">
+            <span className="logo">ᨳଓ</span> <span className="brandName">Bloomy</span>
+            <h2>Welcome Back</h2>
+            <p>Enter your details to access your account</p>
 
-        {location.state?.message && <p className="success-message" role="status">{location.state.message}</p>}
-        <form className="form" onSubmit={handleLogin} noValidate>
+            {location.state?.message && <p className="success-message" role="status">{location.state.message}</p>}
+            <form className="form" onSubmit={handleLogin} noValidate>
 
-            <label htmlFor="email">Email</label>
-            <input id="email" value={email} onChange={(event) => updateField("email", event.target.value)} type="email" placeholder="Enter your Email"
-                aria-invalid={Boolean(errors.email)} aria-describedby={errors.email ? "email-error" : undefined} />
-            {errors.email && <small className="field-error" id="email-error">{errors.email}</small>}
+                <label htmlFor="email">Email</label>
+                <input id="email" value={email} onChange={(event) => updateField("email", event.target.value)} type="email" placeholder="Enter your Email"
+                    aria-invalid={Boolean(errors.email)} aria-describedby={errors.email ? "email-error" : undefined} />
+                {errors.email && <small className="field-error" id="email-error">{errors.email}</small>}
 
-            <label htmlFor="pwd">Password</label>
-            <input id="pwd" value={password} onChange={(event) => updateField("password", event.target.value)} type="password" placeholder="Enter your Password"
-                aria-invalid={Boolean(errors.password)} aria-describedby={errors.password ? "password-error" : undefined} />
-            {errors.password && <small className="field-error" id="password-error">{errors.password}</small>}
+                <label htmlFor="pwd">Password</label>
+                <input id="pwd" value={password} onChange={(event) => updateField("password", event.target.value)} type="password" placeholder="Enter your Password"
+                    aria-invalid={Boolean(errors.password)} aria-describedby={errors.password ? "password-error" : undefined} />
+                {errors.password && <small className="field-error" id="password-error">{errors.password}</small>}
 
-            {errors.form && <p className="form-error" role="alert">{errors.form}</p>}
+                {errors.form && <p className="form-error" role="alert">{errors.form}</p>}
 
-            <button type="submit">Login</button>
-        </form>
+                <button type="submit">Login</button>
+            </form>
 
-        <p className="account-prompt">Are you a new member? <Link to="/signin">Sign up</Link></p>
+            <p className="account-prompt">Are you a new member? <Link to="/signin">Sign up</Link></p>
 
-    </div>
-)
+        </div>
+        </div>
+    )
 }
 export default Login
