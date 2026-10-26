@@ -44,36 +44,36 @@ function Signin() {
     }
 
     return (
-        <div className="card">
+        <div className="card__container">
+            <div className="card">
+                <span className="logo">ᨳଓ</span> <span className="brandName">Bloomy</span>
+                <h2>Create an Account</h2>
+                <p>Sign up to get started</p>
 
-            <span className="logo">ᨳଓ</span> <span className="brandName">Bloomy</span>
-            <h2>Create an Account</h2>
-            <p>Sign up to get started</p>
+                <form className="form" onSubmit={handleSignin} noValidate>
 
-            <form className="form" onSubmit={handleSignin} noValidate>
+                    <label htmlFor="name">Name</label>
+                    <input id="name" value={name} onChange={(event) => updateField("name", event.target.value)} type="text" placeholder="Enter your name"
+                        aria-invalid={Boolean(errors.name)} aria-describedby={errors.name ? "name-error" : undefined} />
+                    {errors.name && <small className="field-error" id="name-error">{errors.name}</small>}
 
-                <label htmlFor="name">Name</label>
-                <input id="name" value={name} onChange={(event) => updateField("name", event.target.value)} type="text" placeholder="Enter your name"
-                    aria-invalid={Boolean(errors.name)} aria-describedby={errors.name ? "name-error" : undefined} />
-                {errors.name && <small className="field-error" id="name-error">{errors.name}</small>}
+                    <label htmlFor="email">Email</label>
+                    <input id="email" value={email} onChange={(event) => updateField("email", event.target.value)} type="email" placeholder="Enter your email"
+                        aria-invalid={Boolean(errors.email)} aria-describedby={errors.email ? "email-error" : undefined} />
+                    {errors.email && <small className="field-error" id="email-error">{errors.email}</small>}
 
-                <label htmlFor="email">Email</label>
-                <input id="email" value={email} onChange={(event) => updateField("email", event.target.value)} type="email" placeholder="Enter your email"
-                    aria-invalid={Boolean(errors.email)} aria-describedby={errors.email ? "email-error" : undefined} />
-                {errors.email && <small className="field-error" id="email-error">{errors.email}</small>}
+                    <label htmlFor="pwd">Password</label>
+                    <input id="pwd" value={password} onChange={(event) => updateField("password", event.target.value)} type="password" placeholder="Enter your password"
+                        aria-invalid={Boolean(errors.password)} aria-describedby={errors.password ? "password-error" : undefined} />
+                    {errors.password && <small className="field-error" id="password-error">{errors.password}</small>}
 
-                <label htmlFor="pwd">Password</label>
-                <input id="pwd" value={password} onChange={(event) => updateField("password", event.target.value)} type="password" placeholder="Enter your password"
-                    aria-invalid={Boolean(errors.password)} aria-describedby={errors.password ? "password-error" : undefined} />
-                {errors.password && <small className="field-error" id="password-error">{errors.password}</small>}
+                    {errors.form && <p className="form-error" role="alert">{errors.form}</p>}
 
-                {errors.form && <p className="form-error" role="alert">{errors.form}</p>}
+                    <button type="submit">Sign up</button>
+                </form>
 
-                <button type="submit">Sign up</button>
-            </form>
-
-            <p className="account-prompt">Already have an account? <Link to="/login">Login</Link></p>
-
+                <p className="account-prompt">Already have an account? <Link to="/login">Login</Link></p>
+            </div>
         </div>
     )
 }
